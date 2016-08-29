@@ -3,6 +3,12 @@
 {% block title %}Register{% endblock %}
 
 {% block content %}
+{% if user.is_authenticated %}
+<div class="container">
+  <h5>You are already logged in</h5>
+  <a class="button" href="/coupons/">View Coupons</a>
+</div>
+{% else %}
 <form method="post" action=".">
 {% csrf_token %}
 {{ form.non_field_errors }}
@@ -41,7 +47,7 @@
     <div class="six columns">
       {{ form.phone_number.errors }}
       <label for="id_phone_number">Phone number</label>
-      <input class="u-full-width" id="id_phone_number" name="phone_number" pattern="[0-9 +]{1,14}" type="tel" placeholder="+91xxxxxxxxxx" required>
+      <input class="u-full-width" id="id_phone_number" name="phone_number" pattern="[0-9 +]{1,14}" type="tel" placeholder="+91xxxxxxxxxx" maxlength="13" required>
     </div>
     <div class="six columns">
       {{ form.email.errors }}
@@ -62,5 +68,7 @@
     </div>
   </div>
   <input class="u-pull-right" type="submit" value="Register" />
+  <input type="hidden" name="redirect" value="accounts/login/">
 </form>
+{% endif %}
 {% endblock %}
