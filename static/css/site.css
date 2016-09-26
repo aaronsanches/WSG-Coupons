@@ -83,3 +83,31 @@
     overflow: auto;
     max-height: 500px;
 }
+
+.scratch {
+  position: relative;
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  color: #c42d2d;
+  border: 3px solid grey;
+  font-size: 70px;
+  font-weight: 700;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -o-user-select: none;
+}
+
+#canvas {
+  position: absolute;
+  left: -3px;
+  top: -3px;
+  background: transparent;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -o-user-select: none;
+}
